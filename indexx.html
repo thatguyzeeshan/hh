@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Learning Site</title>
+    <style>body {
+        font-family: Arial, sans-serif;
+    }
+    
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    
+    .content-section {
+        display: none;
+    }
+    
+    .content-section.active {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('calculus')">Calculus</a></li>
+            <li><a href="#" onclick="showSection('trigonometry')">Trigonometry</a></li>
+            <li><a href="#" onclick="showSection('linear-algebra')">Linear Algebra</a></li>
+        </ul>
+    </nav>
+
+    <section id="calculus" class="content-section">
+        <h2>Calculus</h2>
+        <p>Content for Calculus.</p>
+    </section>
+    
+    <section id="trigonometry" class="content-section">
+        <h2>Trigonometry</h2>
+        <p>Content for Trigonometry.</p>
+    </section>
+    
+    <section id="linear-algebra" class="content-section">
+        <h2>Linear Algebra</h2>
+        <p>Content for Linear Algebra.</p>
+    </section>
+
+    <script>
+function showSection(sectionId) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Show the selected section
+    const activeSection = document.getElementById(sectionId);
+    if (activeSection) {
+        activeSection.classList.add('active');
+    }
+}
+
+// Show the first section by default
+document.addEventListener('DOMContentLoaded', () => {
+    showSection('calculus');
+});
+
+    </script>
+</body>
+</html>
